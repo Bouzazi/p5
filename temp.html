@@ -1,0 +1,159 @@
+<div class="instructionsContainer p-3">
+  <h6 class="mt-3">Info about the fractals/spirographs</h6>
+  <textarea
+    class="form-control"
+    id="exampleFormControlTextarea1"
+    rows="3"
+    readonly
+    noresize
+  ></textarea>
+
+  <h6 class="mt-3">Instructions for user interactions</h6>
+
+  <!-- Background color -->
+  <div class="form-group mt-2">
+    <label for="backgroundColor">Background color</label>
+    <input
+      id="backgroundColor"
+      type="color"
+      class="form-control"
+      value="#B8B8B8"
+    />
+  </div>
+
+  <!-- Generation color -->
+  <div class="form-group mt-2">
+    <label for="generationColor">Generation color</label>
+    <input
+      id="generationColor"
+      type="color"
+      class="form-control"
+      value="#000000"
+    />
+  </div>
+
+  <div id="fractalsDetails">
+    <!-- Shape selector -->
+    <div class="form-group mt-2">
+      <label for="shapeSelect">Choose a shape</label>
+      <select
+        id="shapeSelect"
+        class="form-select mb-4"
+        aria-label="Default select example"
+      >
+        <option value="1">Square</option>
+        <option value="2" selected>Circle</option>
+      </select>
+    </div>
+
+    <!-- Iterations & Size -->
+    <div class="row mt-2">
+      <div class="col">
+        <label for="iterationsInput" class="form-label">Iterations</label>
+        <input
+          type="range"
+          class="form-range"
+          id="iterationsRange"
+          min="0"
+          max="10"
+          value="5"
+        />
+        <input
+          type="number"
+          class="form-control form-control-sm"
+          id="iterationsInput"
+          min="0"
+          max="10"
+          value="5"
+        />
+      </div>
+      <div class="col">
+        <label for="sizeInput" class="form-label">Size</label>
+        <input
+          type="range"
+          class="form-range"
+          id="sizeRange"
+          min="0"
+          max="100"
+          value="65"
+        />
+        <input
+          type="number"
+          class="form-control form-control-sm"
+          id="sizeInput"
+          min="0"
+          max="100"
+          value="65"
+        />
+      </div>
+    </div>
+
+    <!-- Angles -->
+    <div class="row mt-2">
+      <div class="col">
+        <label for="rightAngleInput" class="form-label">Right Angle</label>
+        <input
+          type="range"
+          class="form-range"
+          id="rightAngleRange"
+          min="0"
+          max="360"
+          value="45"
+        />
+        <input
+          type="number"
+          class="form-control form-control-sm"
+          id="rightAngleInput"
+          min="0"
+          max="360"
+          value="45"
+        />
+      </div>
+      <div class="col">
+        <label for="leftAngleInput" class="form-label">Left Angle</label>
+        <input
+          type="range"
+          class="form-range"
+          id="leftAngleRange"
+          min="0"
+          max="360"
+          value="315"
+        />
+        <input
+          type="number"
+          class="form-control form-control-sm"
+          id="leftAngleInput"
+          min="0"
+          max="360"
+          value="315"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-2" id="generativeDesignDetails">
+    <select
+      id="generativeDesignPicker"
+      class="form-select mb-4"
+      aria-label="Default select example"
+    >
+      <option value="0" selected>Please choose a design</option>
+      <option value="1">Image from Text</option>
+      <option value="2">Image from lines</option>
+      <option value="3">Image from equation</option>
+    </select>
+
+    <div id="imageText"></div>
+
+    <div id="imageLines"></div>
+
+    <div id="imageEquation"></div>
+  </div>
+
+  <div class="buttons mt-2">
+    <button type="button" class="btn btn-primary">Stop/Resume rendering</button>
+    <button type="button" class="btn btn-primary">
+      Save image to computer
+    </button>
+  </div>
+</div>

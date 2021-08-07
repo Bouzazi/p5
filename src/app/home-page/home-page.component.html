@@ -1,0 +1,39 @@
+<div class="d-md-flex">
+  <!-- First Half -->
+  <div class="col-md-6 p-0 bg-indigo">
+    <div class="text-white align-items-center h-100 p-5">
+      <select
+        id="generationSelect"
+        class="form-select mb-4"
+        aria-label="Default select example"
+        (change)="generationSelectChange($event.target.value)"
+      >
+        <option value="0" selected>
+          Please choose your type of generation
+        </option>
+        <option value="1">Pythagoras Tree</option>
+        <option value="2">Mandelbrot and Julia Fractals</option>
+        <option value="3">Generative Design</option>
+      </select>
+
+      <div
+        *ngIf="selectedGeneration == PYTHAGOREAN_TREE_INDEX"
+        id="pythagorasTreeGeneration"
+      >
+        <app-pythagoras-tree></app-pythagoras-tree>
+      </div>
+
+      <div
+        *ngIf="selectedGeneration == GENERATIVE_DESIGN_INDEX"
+        id="generativeDesignGeneration"
+      ></div>
+    </div>
+  </div>
+
+  <!-- Second Half -->
+  <div class="col-md-6 p-0 bg-white loginarea">
+    <div class="p-5">
+      <div id="sketch-holder"></div>
+    </div>
+  </div>
+</div>
