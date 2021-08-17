@@ -13,20 +13,90 @@
         </option>
         <option value="1">Pythagoras Tree</option>
         <option value="2">Mandelbrot and Julia Fractals</option>
-        <option value="3">Generative Design</option>
+        <option value="3">Sierpinski</option>
+        <option value="4">Circle</option>
+        <option value="5">Generative Design</option>
       </select>
 
-      <div
-        *ngIf="selectedGeneration == PYTHAGOREAN_TREE_INDEX"
-        id="pythagorasTreeGeneration"
-      >
-        <app-pythagoras-tree></app-pythagoras-tree>
+      <div id="generationDetailsContainer" [ngSwitch]="selectedGeneration">
+        <app-pythagoras-tree
+          *ngSwitchCase="PYTHAGOREAN_TREE_INDEX"
+        ></app-pythagoras-tree>
+        <div *ngSwitchCase="GENERATIVE_DESIGN_INDEX">
+          <select
+            class="form-select mb-4"
+            aria-label="Default select example"
+            (change)="generativeDesignSelect($event.target.value)"
+          >
+            <option value="0" selected>Please choose a design</option>
+            <option value="1">Image from Text</option>
+            <option value="2">Image from lines</option>
+            <option value="3">Image from equation</option>
+          </select>
+
+          <div [ngSwitch]="selectedGenerativeDesign">
+            <app-image-from-text
+              *ngSwitchCase="IMAGE_FROM_TEXT_INDEX"
+            ></app-image-from-text>
+            <app-image-from-lines *ngSwitchCase="IMAGE_FROM_LINES_INDEX">
+            </app-image-from-lines>
+            <app-image-from-equation
+              *ngSwitchCase="IMAGE_FROM_EQUATION_INDEX"
+            ></app-image-from-equation>
+          </div>
+        </div>
+        <app-mandelbrot-julia
+          *ngSwitchCase="MANDELBROT_JULIA_INDEX"
+        ></app-mandelbrot-julia>
+        <app-sierpinksi *ngSwitchCase="SIERPINKSI_INDEX">
+          <select
+            class="form-select mb-4"
+            aria-label="Default select example"
+            (change)="sierpinksiSelect($event.target.value)"
+          >
+            <option value="0" selected>Please choose an option</option>
+            <option value="1">Triangle</option>
+            <option value="2">Carpet</option>
+            <option value="3">Tetrahedron</option>
+          </select>
+
+          <div [ngSwitch]="selectedSierpinksi">
+            <app-sierpinski-triangle
+              *ngSwitchCase="SIERPINKSI_TRIANGLE_INDEX"
+            ></app-sierpinski-triangle>
+            <app-sierpinski-carpet *ngSwitchCase="SIERPINKSI_CARPET_INDEX">
+            </app-sierpinski-carpet>
+            <app-sierpinski-tetrahedron
+              *ngSwitchCase="SIERPINKSI_TETRAHEDRON_INDEX"
+            ></app-sierpinski-tetrahedron>
+          </div>
+        </app-sierpinksi>
+        <app-circle *ngSwitchCase="CIRCLE_INDEX"></app-circle>
       </div>
 
       <div
-        *ngIf="selectedGeneration == GENERATIVE_DESIGN_INDEX"
-        id="generativeDesignGeneration"
-      ></div>
+        *ngIf="selectedGenerativeDesign != 3 && selectedSierpinksi != 3"
+        class="row mt-3"
+      >
+        <div class="col">
+          <button
+            class="btn btn-primary"
+            (click)="saveImage()"
+            [disabled]="selectedGeneration == 0"
+          >
+            Save image to Desktop
+          </button>
+        </div>
+        <div class="col">
+          <button
+            class="btn btn-primary"
+            (click)="getSnapshot()"
+            [disabled]="selectedGeneration == 0"
+          >
+            Take a snapshot from rendering
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -34,6 +104,7 @@
   <div class="col-md-6 p-0 bg-white loginarea">
     <div class="p-5">
       <div id="sketch-holder"></div>
+      <canvas #myCanvas width="450" height="450"></canvas>
     </div>
   </div>
 </div>

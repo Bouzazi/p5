@@ -5,7 +5,9 @@
   rows="3"
   readonly
   noresize
-></textarea>
+>
+Duis non facilisis ante, at lobortis est. Curabitur vel dignissim sapien, vel ultrices ipsum. Donec pharetra sem ut fermentum maximus. Mauris interdum augue vitae urna convallis, sed rutrum massa consectetur. Vestibulum pulvinar congue nisl, sit amet finibus lectus fermentum id. Sed vehicula scelerisque tempor. Nulla facilisi. Curabitur in ante commodo, vestibulum nisl in, sodales metus.
+</textarea>
 
 <h6 class="mt-3">Instructions for user interactions</h6>
 
@@ -17,6 +19,7 @@
     type="color"
     class="form-control"
     value="#B8B8B8"
+    (change)="updateBackgroundColor($event.target.value)"
   />
 </div>
 
@@ -28,6 +31,7 @@
     type="color"
     class="form-control"
     value="#000000"
+    (change)="updateGenerationColor($event.target.value)"
   />
 </div>
 
@@ -39,6 +43,7 @@
       id="shapeSelect"
       class="form-select mb-4"
       aria-label="Default select example"
+      (change)="updateShape($event.target.value)"
     >
       <option value="1">Square</option>
       <option value="2" selected>Circle</option>
@@ -55,7 +60,8 @@
         id="iterationsRange"
         min="0"
         max="10"
-        value="5"
+        value="{{ iteration }}"
+        (change)="updateIteration($event.target.value)"
       />
       <input
         type="number"
@@ -63,7 +69,8 @@
         id="iterationsInput"
         min="0"
         max="10"
-        value="5"
+        value="{{ iteration }}"
+        (change)="updateIteration($event.target.value)"
       />
     </div>
     <div class="col">
@@ -74,7 +81,8 @@
         id="sizeRange"
         min="0"
         max="100"
-        value="65"
+        value="{{ size }}"
+        (change)="updateSize($event.target.value)"
       />
       <input
         type="number"
@@ -82,7 +90,8 @@
         id="sizeInput"
         min="0"
         max="100"
-        value="65"
+        value="{{ size }}"
+        (change)="updateSize($event.target.value)"
       />
     </div>
   </div>
@@ -97,7 +106,8 @@
         id="rightAngleRange"
         min="0"
         max="360"
-        value="45"
+        value="{{ angleRight }}"
+        (change)="updateAngleRight($event.target.value)"
       />
       <input
         type="number"
@@ -105,7 +115,8 @@
         id="rightAngleInput"
         min="0"
         max="360"
-        value="45"
+        value="{{ angleRight }}"
+        (change)="updateAngleRight($event.target.value)"
       />
     </div>
     <div class="col">
@@ -116,7 +127,8 @@
         id="leftAngleRange"
         min="0"
         max="360"
-        value="315"
+        value="{{ angleLeft }}"
+        (change)="updateAngleLeft($event.target.value)"
       />
       <input
         type="number"
@@ -124,7 +136,8 @@
         id="leftAngleInput"
         min="0"
         max="360"
-        value="315"
+        value="{{ angleLeft }}"
+        (change)="updateAngleLeft($event.target.value)"
       />
     </div>
   </div>

@@ -1,0 +1,19 @@
+<label for="iterationsInput" class="form-label">Size</label>
+<input
+  type="range"
+  class="form-range"
+  min="20"
+  max="60"
+  value="{{ size }}"
+  (change)="updateSize($event.target.value)"
+/>
+<input
+  type="number"
+  class="form-control form-control-sm"
+  min="20"
+  max="60"
+  value="{{ size }}"
+  (change)="updateSize($event.target.value)"
+/>
+<h6 class="mt-3">Press "P" to pause/resume animation</h6>
+<h6 class="mt-3">Press "S" to save image</h6>

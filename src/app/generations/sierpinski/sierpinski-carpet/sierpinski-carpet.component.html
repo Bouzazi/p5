@@ -1,0 +1,17 @@
+<label for="iterationsInput" class="form-label">Size</label>
+<input
+  type="range"
+  class="form-range"
+  min="100"
+  max="400"
+  value="{{ sizeSetting }}"
+  (change)="updateSizeSetting($event.target.value)"
+/>
+<input
+  type="number"
+  class="form-control form-control-sm"
+  min="100"
+  max="400"
+  value="{{ sizeSetting }}"
+  (change)="updateSizeSetting($event.target.value)"
+/>

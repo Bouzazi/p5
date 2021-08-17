@@ -1,0 +1,22 @@
+<h6 class="mt-3">Choose a draw mode, press "g" to regenerate</h6>
+
+<select
+  class="form-select mb-4"
+  aria-label="Default select example"
+  (change)="drawModeSelect($event.target.value)"
+>
+  <option value="1" selected>Greyscale to stroke weight</option>
+  <option value="2">Greyscale to ellipse area</option>
+  <option value="3">Greyscale to line length</option>
+  <option value="4">
+    Greyscale to rotation, line length and stroke weight
+  </option>
+  <option value="5">Greyscale to line relief</option>
+  <option value="6">Pixel color to fill, greyscale to ellipse size</option>
+  <option value="7">Custom mode</option>
+  <option value="8">Custom mode</option>
+  <option value="9">Custom mode</option>
+</select>
+
+<h6 class="mt-3">Choose an image</h6>
+<input type="file" class="form-control-file" id="exampleFormControlFile1" />

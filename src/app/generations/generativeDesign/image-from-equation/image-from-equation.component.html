@@ -1,0 +1,25 @@
+<h6 class="mt-3">Line Weight</h6>
+<input type="number" class="form-control" [(ngModel)]="lineWeight" />
+
+<h6 class="mt-3">Line Color</h6>
+<input
+  id="backgroundColor"
+  type="color"
+  class="form-control"
+  value="#B8B8B8"
+  (change)="updateLineColor($event.target.value)"
+/>
+
+<h6 class="mt-3">Line Alpha</h6>
+<input type="number" class="form-control" [(ngModel)]="lineAlpha" />
+
+<h6 class="mt-3">Connection Radius</h6>
+<input type="number" class="form-control" [(ngModel)]="connectionRadius" />
+
+<h6 class="mt-3">Connection Ramp</h6>
+<input type="number" class="form-control" [(ngModel)]="connectionRamp" />
+
+<h6 class="mt-3">Rotation</h6>
+<input type="number" step="15" class="form-control" [(ngModel)]="phi" />
+
+<h6 class="mt-3 text-center">Press "g" to regenerate</h6>

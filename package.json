@@ -20,8 +20,11 @@
     "@angular/platform-browser-dynamic": "~10.1.0",
     "@angular/router": "~10.1.0",
     "bootstrap": "^5.1.0",
+    "chroma-js": "^2.1.2",
+    "ng2-file-upload": "^1.4.0",
     "p5": "^1.4.0",
     "rxjs": "~6.6.0",
+    "rxjs-compat": "^6.6.7",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
   },
